@@ -14,10 +14,12 @@ export const LandingPage = () => {
             </div>
 
             <div className="buttonContainer">
+            <a href="/login">
               <Button size="lg" className="landingbutton">
                 Login
               </Button>
-
+            </a>
+            <a href="/register">
               <Button
                 variant="outline-primary"
                 size="lg"
@@ -25,6 +27,7 @@ export const LandingPage = () => {
               >
                 Signup
               </Button>
+              </a>
             </div>
           </div>
         </Row>

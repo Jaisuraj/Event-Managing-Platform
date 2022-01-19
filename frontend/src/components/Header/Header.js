@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../actions/userActions";;
+
+
 export const Header = () => {
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+ const logoutHandler = () => {
+    dispatch(logout());
+  };
+
+  useEffect(() => {}, [userInfo]);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -13,17 +27,29 @@ export const Header = () => {
             <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
           <Nav>
+          
             <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="/eventnotes">
-              <Link to="/eventnotes">Event Notes</Link>
-            </Nav.Link>
+            
+            
           </Nav>
           <Nav className="ml-auto">
-            <NavDropdown title="User Name" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">My Profile</NavDropdown.Item>
+          {userInfo ? (
+            <>
+            <Nav.Link eventKey={2} href="/eventnotes">
+              <Link to="/myevents">My Events</Link>
+            </Nav.Link>
+            <NavDropdown title={`${userInfo.name}`} id="collasible-nav-dropdown">
+              <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">Logout</NavDropdown.Item>
+               <NavDropdown.Item onClick={logoutHandler} >
+                    Logout
+                  </NavDropdown.Item>
             </NavDropdown>
+            </>
+            ) :(
+              <Nav.Link href="/login">Login</Nav.Link>
+            )}
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

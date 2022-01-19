@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Container } from "react-bootstrap";
 
-export const MainScreen = ({ title, children }) => {
+ export const MainScreen = ({ title, children }) => {
   return (
     <div className="mainback">
       <Container>
@@ -16,7 +16,10 @@ export const MainScreen = ({ title, children }) => {
             {children}
           </div>
         </Row>
+       
       </Container>
     </div>
   );
 };
+
+export default MainScreen;

@@ -1,6 +1,19 @@
-import { MainScreen } from "../../components/MainScreen.js";
+import { MainScreen } from "../../components/MainScreen";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import styled from "styled-components";
+import { FormCard } from "../../components/FormCard";
+
+const AppContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 19rem);
+  justify-content: center;
+`;
 export const EventNotes = () => {
   return (
     <MainScreen title="Hello World">
@@ -9,6 +22,8 @@ export const EventNotes = () => {
           Plan Now
         </Button>
       </Link>
+
+      <FormCard> </FormCard>
     </MainScreen>
   );
 };
