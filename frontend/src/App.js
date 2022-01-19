@@ -6,15 +6,17 @@ import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { BrowserRouter, Route } from "react-router-dom";
 import { EventNotes } from "./screens/EventNotes/EventNotes";
+import { ProfileScreen } from "./screens/ProfileScreen/ProfileScreen";
 
 const App = () => (
   <BrowserRouter>
     <Header />
     <main>
       <Route path="/" component={LandingPage} exact />
-      <Route path="/login" component={LoginScreen} exact />
-      <Route path="/register" component={RegisterScreen} exact />
+      <Route path="/login" component={LoginScreen}  />
+      <Route path="/register" component={RegisterScreen}  />
       <Route path="/myevents" component={EventNotes} />
+      <Route path="/profile" component={ProfileScreen}  />
     </main>
 
     <Footer />

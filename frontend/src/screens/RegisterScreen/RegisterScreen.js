@@ -34,15 +34,16 @@ export function RegisterScreen({ history }) {
     setPicMessage(null);
     if (pics.type === "image/jpeg" || pics.type === "image/png") {
       const data = new FormData();
-      data.append("file", pics);
-      data.append("upload_preset", "eventplanner");
-      data.append("cloud_name", "event2022");
+      data.append('file', pics);
+      data.append('upload_preset', 'eventplanner');
+      data.append('cloud_name' , 'event2022');
       fetch("https://api.cloudinary.com/v1_1/event2022/image/upload", {
         method: "post",
         body: data,
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log(data);
           setPic(data.url.toString());
         })
         .catch((err) => {
@@ -118,8 +119,7 @@ export function RegisterScreen({ history }) {
           <Form.Group controlId="pic">
             <Form.Label>Profile Picture</Form.Label>
             <Form.Control onChange={(e) => postDetails(e.target.files[0])}
-            id="custom-file"
-              
+            id="custom-file"  
             type="file"
                />
             </Form.Group>

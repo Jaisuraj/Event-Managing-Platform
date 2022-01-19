@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link , useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../actions/userActions";;
 
 
 export const Header = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -13,6 +14,7 @@ export const Header = () => {
 
  const logoutHandler = () => {
     dispatch(logout());
+    history.push("/");
   };
 
   useEffect(() => {}, [userInfo]);
