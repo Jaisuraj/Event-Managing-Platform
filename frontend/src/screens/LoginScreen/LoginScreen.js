@@ -7,13 +7,12 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { login } from "../../actions/userActions";
 import MainScreen from "../../components/MainScreen";
 import "./LoginScreen.css";
-import axios from 'axios';
+import axios from "axios";
 
-export const LoginScreen = ({history}) => {
-   
-   const [email, setEmail] = useState("");
-   const [password, setPassword] = useState("");
-    const dispatch = useDispatch();
+export const LoginScreen = ({ history }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
@@ -24,22 +23,21 @@ export const LoginScreen = ({history}) => {
     }
   }, [history, userInfo]);
 
-   const submitHandler  = async (e) => {
-       e.preventDefault();
-       dispatch(login(email, password));
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
   };
 
-    return (
-       <MainScreen title="LOGIN">
+  return (
+    <MainScreen title="LOGIN">
       <div className="loginContainer">
-      { error && <ErrorMessage variant="danger">{error}</ErrorMessage> }
-        {loading && <Loading />}
-    
-        <Form onSubmit={submitHandler} >
+        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+
+        <Form onSubmit={submitHandler}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
-               type="email"
+              type="email"
               value={email}
               placeholder="Enter email"
               onChange={(e) => setEmail(e.target.value)}
@@ -49,7 +47,7 @@ export const LoginScreen = ({history}) => {
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
-               type="password"
+              type="password"
               value={password}
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
@@ -67,6 +65,6 @@ export const LoginScreen = ({history}) => {
         </Row>
       </div>
     </MainScreen>
-    )
-}
+  );
+};
 export default LoginScreen;

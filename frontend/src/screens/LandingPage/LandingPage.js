@@ -12,7 +12,7 @@ export const LandingPage = () => {
               <h1 className="title">Welcome to Event Planner</h1>
               <p className="subtitle">Perefct planning doesn't exis...</p>
             </div>
-
+          
             <div className="buttonContainer">
             <a href="/login">
               <Button size="lg" className="landingbutton">
