@@ -1,4 +1,4 @@
-import "./App.css";
+
 import { LandingPage } from "./screens/LandingPage/LandingPage";
 import { LoginScreen } from "./screens/LoginScreen/LoginScreen";
 import { RegisterScreen } from "./screens/RegisterScreen/RegisterScreen";
@@ -8,6 +8,9 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { EventNotes } from "./screens/EventNotes/EventNotes";
 import { ProfileScreen } from "./screens/ProfileScreen/ProfileScreen";
 import  MapScreen  from "./screens/MapScreen/MapScreen";
+import Home from "./components/home/Home.tsx"
+import './css/index1.css'
+
 
 const App = () => (
   <BrowserRouter>
@@ -19,6 +22,8 @@ const App = () => (
       <Route path="/myevents" component={EventNotes} />
       <Route path="/profile" component={ProfileScreen} />
       <Route path="/features" component={MapScreen}  />
+      <Route path="/deets" component={Home}  />
+  
     </main>
 
     <Footer />

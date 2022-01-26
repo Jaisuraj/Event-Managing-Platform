@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store";
 import './video.css'
+import './css/index1.css'
 ReactDOM.render(
   <Provider store={store}>
     <App />
