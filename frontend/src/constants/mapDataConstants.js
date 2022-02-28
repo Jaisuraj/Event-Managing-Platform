@@ -1,0 +1,3 @@
+export const MAP_DATA_REQUEST = "MAP_DATA_REQUEST";
+export const MAP_DATA_SUCCESS = "MAP_DATA_SUCCESS";
+export const MAP_DATA_FAIL = "MAP_DATA_FAIL";

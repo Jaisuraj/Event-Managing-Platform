@@ -9,12 +9,19 @@ import { EventNotes } from "./screens/EventNotes/EventNotes";
 import { ProfileScreen } from "./screens/ProfileScreen/ProfileScreen";
 import  MapScreen  from "./screens/MapScreen/MapScreen";
 import Home from "./components/home/Home.tsx"
+import Testmap from "./screens/TestMap/Testmap.js";
+import MyNotes from './screens/MyNotes/MyNotes';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+import CreateNote from './screens/CreateNote/CreateNote';
+import SingleNote from './screens/CreateNote/SingleNote';
 import './css/index1.css'
 
 
 const App = () => (
   <BrowserRouter>
+ 
     <Header />
+    
     <main>
       <Route path="/" component={LandingPage} exact />
       <Route path="/login" component={LoginScreen} />
@@ -23,11 +30,15 @@ const App = () => (
       <Route path="/profile" component={ProfileScreen} />
       <Route path="/features" component={MapScreen}  />
       <Route path="/deets" component={Home}  />
-  
+      <Route path="/createnote" component={CreateNote}/>
+      <Route path="/mynotes" component={MyNotes}/>
+      <Route path="/note/:id" component={SingleNote}/>
     </main>
 
     <Footer />
+ 
   </BrowserRouter>
+  
 );
 
 export default App;

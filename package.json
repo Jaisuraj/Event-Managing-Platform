@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "client1":"node maps/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "client1": "node maps/node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "dev": "concurrently \"npm run start\" \"npm run client\" \"npm run client1\""
   },
   "author": "",
@@ -20,6 +20,7 @@
     "framer-motion": "^5.6.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.7",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "react-markdown": "^8.0.0"
   }
 }

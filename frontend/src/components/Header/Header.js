@@ -34,6 +34,12 @@ export const Header = () => {
             
             
           </Nav>
+          <Nav>
+          
+            <Nav.Link href="/mynotes">My Notes</Nav.Link>
+            
+            
+          </Nav>
           <Nav className="ml-auto">
           {userInfo ? (
             <>

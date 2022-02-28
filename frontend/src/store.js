@@ -7,13 +7,24 @@ import {
   userRegisterReducer,
   userUpdateReducer,
 } from "./reducers/userReducers";
-
+import {
+  MapListReducer
+} from "./reducers/mapDataReducer"
+import {
+  noteListReducer,
+  noteCreateReducer,
+  noteUpdateReducer
+} from "./reducers/notesReducer"
 
 
 const reducer = combineReducers({
   
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  mapList: MapListReducer,
+  noteList: noteListReducer,
+  noteCreate: noteCreateReducer,
+  noteUpdate: noteUpdateReducer
 
 });
 
