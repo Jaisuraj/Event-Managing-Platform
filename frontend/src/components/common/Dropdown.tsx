@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "./Dropdown.css"
 
 export interface IDropdownProps {
     options: Array<Record<string, string>>
@@ -45,9 +46,7 @@ const Dropdown = ({
             name={name} 
             onChange={handleChange} 
             value={value}
-            className={`dropdown ${
-                className || ''
-            }`}
+            
             data-test="dropdown"
         >
             {placeholder && (<option disabled>{placeholder}</option>)}

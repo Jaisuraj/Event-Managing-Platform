@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import "./TextInput.css"
 export interface ITextInputProps{
     id: string
     name: string
@@ -24,11 +24,11 @@ const TextInput = ({
     }
     return (
         <input 
-            className={`text-input ${className}`}
+            className="inputtx"
             type="text" 
             id={id} 
             name={name} 
-            placeholder={placeholder} 
+            placeholder={""} 
             onChange={onChangeHandler}
             value={value}
             data-test="textInput"

@@ -1,0 +1,8 @@
+.card__containts{
+    height: 30%;
+    width: 100%;
+    margin: 1%;
+}
+.card__footer{
+    height: fit-content;
+}

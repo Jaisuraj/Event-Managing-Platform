@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,  useRef  } from "react";
 import MainScreen from "../../components/MainScreen";
 import { Button, Card, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,6 +6,8 @@ import { createNoteAction } from "../../actions/notesActions";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import ReactMarkdown from "react-markdown";
+import emailjs from "emailjs-com"
+
 
 function CreateNote({ history }) {
   const [title, setTitle] = useState("");
@@ -26,12 +28,33 @@ function CreateNote({ history }) {
     setContent("");
     setDate("");
   };
+  
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    console.log("postfunction1")
+    // e.preventDefault();
+    console.log("postfunction2")
+    emailjs.sendForm('service_3lavr1y', 'template_yoruy6w', form.current, 'Go3hzINFp94YMxCdp')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      console.log("postfunction3")
+      form.current.reset()
+      console.log("postfunction4")
+  };
+
+
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(createNoteAction(title, content, category,date));
     if (!title || !content || !category || !date) return;
-
+    console.log("prefunction")
+    sendEmail();
+    
     resetHandler();
     history.push("/mynotes");
   };
@@ -43,7 +66,7 @@ function CreateNote({ history }) {
       <Card>
         <Card.Header>Create a new Note</Card.Header>
         <Card.Body>
-          <Form onSubmit={submitHandler}>
+          <Form onSubmit={submitHandler} ref={form}>
             {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
             <Form.Group controlId="title">
               <Form.Label>Title</Form.Label>
@@ -51,6 +74,7 @@ function CreateNote({ history }) {
                 type="title"
                 value={title}
                 placeholder="Enter the title"
+                name="title"
                 onChange={(e) => setTitle(e.target.value)}
               />
             </Form.Group>
@@ -62,6 +86,7 @@ function CreateNote({ history }) {
                 value={content}
                 placeholder="Enter the content"
                 rows={4}
+                name="content"
                 onChange={(e) => setContent(e.target.value)}
               />
             </Form.Group>
@@ -79,6 +104,7 @@ function CreateNote({ history }) {
               <Form.Control
                 type="content"
                 value={category}
+                name="category"
                 placeholder="Enter the Category"
                 onChange={(e) => setCategory(e.target.value)}
               />
@@ -89,6 +115,7 @@ function CreateNote({ history }) {
                 type="content"
                 value={date}
                 placeholder="Enter the date"
+                name="subject"
                 onChange={(e) => setDate(e.target.value)}
               />
             </Form.Group>

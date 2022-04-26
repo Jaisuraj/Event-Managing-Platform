@@ -5,6 +5,7 @@ import TextInput from '../common/TextInput.tsx'
 import Dropdown from '../common/Dropdown.tsx'
 import Button from '../common/Button.tsx'
 import { AVAILABLE_PLACE_TYPES } from '../../constants/common.ts'
+import "./NearbyForm.css"
 
 const NearByForm = (
     {
@@ -49,16 +50,9 @@ const NearByForm = (
                 />
             </div>
             <div className="side-container__form-element">
-                <span>Only Open Places: &nbsp;&nbsp;</span>
-                <Switch 
-                    id="is-open-only-switch"
-                    defaultChecked={false}
-                    name="isOpenOnly"
-                    onChange={(value) => setValue('opennow', value)}
-                    switchText={['Yes', 'No']}
-                    data-test="nearbyFormSwitch"
-                />
+                    
             </div>
+            
             <div>
                 <Button 
                     value="Search" 

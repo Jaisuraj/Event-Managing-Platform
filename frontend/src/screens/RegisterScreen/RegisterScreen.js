@@ -7,6 +7,7 @@ import ErrorMessage from "../../components/ErrorMessage";
 import { register } from "../../actions/userActions";
 import MainScreen from "../../components/MainScreen";
 import "./RegisterScreen.css";
+import regi from'./register.png';
 
 export function RegisterScreen({ history }) {
   const [email, setEmail] = useState("");
@@ -69,72 +70,52 @@ export function RegisterScreen({ history }) {
   };
 
   return (
-    <MainScreen title="REGISTER">
-      <div className="loginContainer">
-        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+    <div className="sec1">
+      <div className="sqr"></div>
+      <div className="log_container">
+        <div className="err1">
+      {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         {message && <ErrorMessage variant="danger">{message}</ErrorMessage>}
         {loading && <Loading />}
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId="name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              type="name"
-              value={name}
-              placeholder="Enter name"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
+        </div>
+        <img src={regi} className="imglog"></img>
+      <h4 className="title">Register</h4>
+      <form className="frm-reg" onSubmit={submitHandler}>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
+      <label>Name</label>
+      <h4></h4>
+      <input type="text" id="fname-reg" name="firstname" placeholder="Todd" value={name} onChange={(e) => setName(e.target.value)}></input>
+      <h4></h4>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
+      <label>Email</label>
+      <h4></h4>
+      <input type="text" id="pname" name="password" placeholder="example@jickmail.com" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+      <h4></h4>
 
-          <Form.Group controlId="confirmPassword">
-            <Form.Label>Confirm Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={confirmpassword}
-              placeholder="Confirm Password"
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </Form.Group>
+      <label>Password</label>
+      <h4></h4>
+      <input type="text" id="pname" name="password" placeholder="#$*^$%#$@%^@" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+      <h4></h4>
 
-          
-          <Form.Group controlId="pic">
-            <Form.Label>Profile Picture</Form.Label>
-            <Form.Control onChange={(e) => postDetails(e.target.files[0])}
-            id="custom-file"  
-            type="file"
-               />
-            </Form.Group>
-          
-          <Button variant="primary" type="submit">
-            Register
-          </Button>
-        </Form>
-        <Row className="py-3">
-          <Col>
-            Have an Account ? <Link to="/login">Login</Link>
-          </Col>
-        </Row>
+      <label>Confirm Password</label>
+      <h4></h4>
+      <input type="text" id="pname" name="password" placeholder="#$*^$%#$@%^@" value={confirmpassword} onChange={(e) => setConfirmPassword(e.target.value)}></input>
+      <h4></h4>
+
+      <label>Profile Pic</label>
+      <h4></h4>
+      <input type="file" id="prfl" name="password" placeholder="Upload Pic" onChange={(e) => postDetails(e.target.files[0])}></input>
+      <h4></h4>
+      
+      <h4 className="laag">Have an Account?<a href="/login">Login</a></h4>
+      
+      
+      <h4></h4>
+      <input type="submit" value="Register"></input>
+      </form>
+
       </div>
-    </MainScreen>
+    </div>
   );
 }
 

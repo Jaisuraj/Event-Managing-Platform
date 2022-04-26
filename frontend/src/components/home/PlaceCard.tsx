@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { IPlacesResult } from "../../interfaces/common";
 import { Link, useHistory } from "react-router-dom";
+import "./PlaceCard.css";
+
+
 const PlaceCard = ({
   data,
 

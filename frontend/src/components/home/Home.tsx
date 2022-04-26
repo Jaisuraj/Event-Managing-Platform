@@ -10,6 +10,7 @@ import {
 } from "../../interfaces/common";
 import NearbyForm from "./NearbyForm.tsx";
 import PlaceCard from "./PlaceCard.tsx";
+import "./Home.css";
 
 const Home = () => {
   const [position, setPosition] = useState<{ lat: number; lng: number }>();
@@ -116,12 +117,34 @@ const Home = () => {
 
   return (
     <div className="container" data-test="home">
+      <div className="map-container">
+        {position && (
+          <GoogleMapReact
+            bootstrapURLKeys={{
+              key: GOOGLE_MAP_API_KEY,
+              libraries: ["places"],
+            }}
+            defaultCenter={position}
+            defaultZoom={15}
+            yesIWantToUseGoogleMapApiInternals={true}
+            onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+            data-test="map"
+          >
+            {results.data &&
+              results.data.map((result) => (
+                <Marker {...result} key={result.id} />
+              ))}
+          </GoogleMapReact>
+        )}
+      </div>
       <div className="sidebar">
-        <NearbyForm
+        <div className="srchbr">
+      <NearbyForm
           onSubmit={getResults}
           isLoading={results.isLoading}
           data-test="nearbyFormComponent"
         />
+        </div>
         <div className="card-container" data-test="placeCardContainer">
           {results.error && <h5>Something Went Wrong. Please Try Again!</h5>}
           {results.data && !results.data.length && (
@@ -144,26 +167,7 @@ const Home = () => {
             : null}
         </div>
       </div>
-      <div className="map-container">
-        {position && (
-          <GoogleMapReact
-            bootstrapURLKeys={{
-              key: GOOGLE_MAP_API_KEY,
-              libraries: ["places"],
-            }}
-            defaultCenter={position}
-            defaultZoom={15}
-            yesIWantToUseGoogleMapApiInternals={true}
-            onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-            data-test="map"
-          >
-            {results.data &&
-              results.data.map((result) => (
-                <Marker {...result} key={result.id} />
-              ))}
-          </GoogleMapReact>
-        )}
-      </div>
+      
     </div>
   );
 };

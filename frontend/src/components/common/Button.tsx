@@ -1,4 +1,5 @@
 import React from "react"
+import "./Button.css"
 
 export interface ITextInputProps{
     value: string
@@ -19,7 +20,7 @@ const Button = ({
     return (
         <input 
             type="submit" 
-            className={`button ${className || ''}`}
+            className="bttn"
             value={isLoading ? 'Loading...' : value} 
             onClick={onClickHandler} 
             data-test="button"

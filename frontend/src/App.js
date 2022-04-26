@@ -19,7 +19,7 @@ import './css/index1.css'
 
 const App = () => (
   <BrowserRouter>
- 
+
     <Header />
     
     <main>
@@ -34,9 +34,6 @@ const App = () => (
       <Route path="/mynotes" component={MyNotes}/>
       <Route path="/note/:id" component={SingleNote}/>
     </main>
-
-    <Footer />
- 
   </BrowserRouter>
   
 );

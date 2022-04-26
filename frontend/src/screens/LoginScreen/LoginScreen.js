@@ -8,6 +8,7 @@ import { login } from "../../actions/userActions";
 import MainScreen from "../../components/MainScreen";
 import "./LoginScreen.css";
 import axios from "axios";
+import log from'./login.png';
 
 export const LoginScreen = ({ history }) => {
   const [email, setEmail] = useState("");
@@ -29,42 +30,29 @@ export const LoginScreen = ({ history }) => {
   };
 
   return (
-    <MainScreen title="LOGIN">
-      <div className="loginContainer">
-        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-
-        <Form onSubmit={submitHandler}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              value={email}
-              placeholder="Enter email"
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="password"
-              value={password}
-              placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Form.Group>
-
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-        <Row className="py-3">
-          <Col>
-            New Customer ? <Link to="/register">Register Here</Link>
-          </Col>
-        </Row>
+    <div className="sec1">
+      <div className="sqr"></div>
+      <div className="log_container">
+      <img src={log} className="imglog"></img>
+      <div className="err">
+      {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
       </div>
-    </MainScreen>
+      <h4 className="title">Log In</h4>
+      <form className="frm" onSubmit={submitHandler}>
+      <label>Email</label>
+      <h4></h4>
+      <input type="text" id="fname" name="firstname" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)}></input>
+      <h4></h4>
+      <label>Password</label>
+      <h4></h4>
+      <input type="text" id="pname" name="password" placeholder="#$*^$%#$@%^@" onChange={(e) => setPassword(e.target.value)}></input>
+      <h4></h4>
+      <h4 className="reg">New user?<a href="/register">Register Here</a></h4>
+      
+      <input type="submit" value="Login"></input>
+      </form>
+      </div>
+    </div>
   );
 };
 export default LoginScreen;
