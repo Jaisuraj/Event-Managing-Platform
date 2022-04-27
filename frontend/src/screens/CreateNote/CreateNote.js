@@ -7,6 +7,8 @@ import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import ReactMarkdown from "react-markdown";
 import emailjs from "emailjs-com"
+import "./CreateNote.css";
+import log from'./login.png';
 
 
 function CreateNote({ history }) {
@@ -62,78 +64,86 @@ function CreateNote({ history }) {
   useEffect(() => {}, []);
 
   return (
-    <MainScreen title="Create a Note">
-      <Card>
-        <Card.Header>Create a new Note</Card.Header>
-        <Card.Body>
-          <Form onSubmit={submitHandler} ref={form}>
-            {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-            <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
-              <Form.Control
-                type="title"
-                value={title}
-                placeholder="Enter the title"
-                name="title"
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </Form.Group>
+    <div className="form_container">
+      <div className="bgsq"></div>
+      <div className="prsq"></div>
+      <img src={log} className="imgnote"></img>
+        <div className="headnote">
+          Create a new Note
+        </div>
+        <div className="forms">
+        <form className="frm" onSubmit={submitHandler} ref={form}>
 
-            <Form.Group controlId="content">
-              <Form.Label>Content</Form.Label>
-              <Form.Control
-                as="textarea"
-                value={content}
-                placeholder="Enter the content"
-                rows={4}
-                name="content"
-                onChange={(e) => setContent(e.target.value)}
-              />
-            </Form.Group>
-            {content && (
-              <Card>
-                <Card.Header>Note Preview</Card.Header>
-                <Card.Body>
-                  <ReactMarkdown>{content}</ReactMarkdown>
-                </Card.Body>
-              </Card>
-            )}
+<label>Title</label>
+<h4></h4>
+<input    type="title"
+          value={title}
+          placeholder="Enter the title"
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
+          className="title_blank"
+          ></input>
+          <h4></h4>
+  
+          <label>Content</label>
+<h4></h4>
 
-            <Form.Group controlId="content">
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                type="content"
-                value={category}
-                name="category"
-                placeholder="Enter the Category"
-                onChange={(e) => setCategory(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="content">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="content"
-                value={date}
-                placeholder="Enter the date"
-                name="subject"
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </Form.Group>
-            {loading && <Loading size={50} />}
-            <Button type="submit" variant="primary">
-              Create Note
-            </Button>
-            <Button className="mx-2" onClick={resetHandler} variant="danger">
-              Reset Feilds
-            </Button>
-          </Form>
-        </Card.Body>
+<input    as="textarea"
+          value={content}
+          placeholder="Enter content"
+          rows={4}
+          name="content"
+          onChange={(e) => setContent(e.target.value)}
+          className="content_blank"
+          ></input>
+          <h4></h4>
 
-        <Card.Footer className="text-muted">
-          Creating on - {new Date().toLocaleDateString()}
-        </Card.Footer>
-      </Card>
-    </MainScreen>
+          <div className="cont_preview">
+          {{content,title,category,date} && (
+        <Card className="preview">
+          <Card.Header>Note Preview</Card.Header>
+          <Card.Body>
+            <ReactMarkdown>{title}</ReactMarkdown>
+            <ReactMarkdown>{category}</ReactMarkdown>
+            <ReactMarkdown>{date}</ReactMarkdown>
+            <ReactMarkdown>{content}</ReactMarkdown>
+          </Card.Body>
+        </Card>
+      )}
+          </div>
+
+<label>Category</label>
+<h4></h4>
+<input    type="content"
+          value={category}
+          name="category"
+          placeholder="Enter the Category"
+          onChange={(e) => setCategory(e.target.value)}
+          className="category"
+          ></input>
+          <h4></h4>
+
+<label>Date</label>
+<h4></h4>
+<input    type="content"
+          value={date}
+          placeholder="Enter the date"
+          name="subject"
+          onChange={(e) => setDate(e.target.value)}
+          className="date"
+          ></input>
+          <h4></h4>
+
+
+<input type="submit" value="Submit" className="subm"></input>
+<div className="reset" onClick={resetHandler}>
+              Reset
+            </div>
+</form>  
+            
+
+        </div>
+    </div>
   );
 }
 
