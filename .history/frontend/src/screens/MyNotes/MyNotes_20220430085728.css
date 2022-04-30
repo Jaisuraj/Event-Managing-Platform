@@ -1,0 +1,11 @@
+.plan_button{
+    width: fit-content;
+    height: fit-content;
+    top: 40%;
+    padding: 1%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 1.2vw;
+    background:#36e3bb;
+}

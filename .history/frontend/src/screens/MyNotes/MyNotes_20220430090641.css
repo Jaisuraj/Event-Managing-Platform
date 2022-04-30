@@ -1,0 +1,16 @@
+.plan_button{
+    width: fit-content;
+    height: fit-content;
+    top: 40%;
+    padding: 0.5% 1% 0.5% 1%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 1.2vw;
+    background:#36e3bb;
+    border-radius: 20px;
+    box-shadow: 0px 0px 1px 3px #53b8a1;
+}
+.plan_button :hover{
+    background: #35a98e;
+}

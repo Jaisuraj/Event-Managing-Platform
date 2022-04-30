@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import MainScreen from "../../components/MainScreen";
 import axios from "axios";
 import { Button, Card, Form } from "react-bootstrap";
@@ -7,6 +7,8 @@ import { deleteNoteAction, updateNoteAction } from "../../actions/notesActions";
 import ErrorMessage from "../../components/ErrorMessage";
 import Loading from "../../components/Loading";
 import ReactMarkdown from "react-markdown";
+import log from'./login.png';
+import emailjs from "emailjs-com"
 
 function SingleNote({ match, history }) {
   const [title, setTitle] = useState();
@@ -20,6 +22,22 @@ function SingleNote({ match, history }) {
   const noteUpdate = useSelector((state) => state.noteUpdate);
   const { loading, error } = noteUpdate;
 
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    console.log("postfunction1")
+    // e.preventDefault();
+    console.log("postfunction2")
+    emailjs.sendForm('service_3lavr1y', 'template_yoruy6w', form.current, 'Go3hzINFp94YMxCdp')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      console.log("postfunction3")
+      form.current.reset()
+      console.log("postfunction4")
+  };
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure?")) {
@@ -54,85 +72,97 @@ function SingleNote({ match, history }) {
     e.preventDefault();
     dispatch(updateNoteAction(match.params.id, title, content, category,date1));
     if (!title || !content || !category ||!date1) return;
-
+    
+    sendEmail();
     resetHandler();
     history.push("/mynotes");
   };
 
   return (
-    <MainScreen title="Edit Note">
-      <Card>
-        <Card.Header>Edit your Note</Card.Header>
-        <Card.Body>
-          <Form onSubmit={updateHandler}>
-            {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
+    <body className="bgbody">
+    <div className="form_container">
+      
+      <div className="bgsq"></div>
+      <div className="bgsq1"></div>
+      
+      <img src={log} className="imgnote"></img>
+        <div className="headnote">
+          Edit The Note
+        </div>
+        <div className="forms">
+        <form className="frm" onSubmit={updateHandler} ref={form}>
+
+<label>Title</label>
+<h4></h4>
+<input    type="title"
+          value={title}
+          placeholder=""
+          name="title"
+          onChange={(e) => setTitle(e.target.value)}
+          className="title_blank"
+          ></input>
+          <h4></h4>
+  
+          <label>Content</label>
+<h4></h4>
+
+<input    as="textarea"
+          value={content}
+          placeholder=""
+          rows={4}
+          name="content"
+          onChange={(e) => setContent(e.target.value)}
+          className="content_blank"
+          ></input>
+          <h4></h4>
+
+          <div className="cont_preview">
+          {{content,title,category,date} && (
+        <Card className="preview">
+          <Card.Header>Note Preview</Card.Header>
+          <Card.Body>
+            <ReactMarkdown>{title}</ReactMarkdown>
+            <ReactMarkdown>{category}</ReactMarkdown>
+            <ReactMarkdown>{date}</ReactMarkdown>
+            <ReactMarkdown>{content}</ReactMarkdown>
+          </Card.Body>
+        </Card>
+      )}
+          </div>
+
+<label>Category</label>
+<h4></h4>
+<input    type="content"
+          value={category}
+          name="category"
+          placeholder=""
+          onChange={(e) => setCategory(e.target.value)}
+          className="category"
+          ></input>
+          <h4></h4>
+
+<label>Date</label>
+<h4></h4>
+<input    type="content"
+          value={date}
+          placeholder=""
+          name="subject"
+          onChange={(e) => setDate(e.target.value)}
+          className="date"
+          ></input>
+          <h4></h4>
+
+
+<input type="submit" value="Update" className="subm"></input>
+<div className="reset" onClick={deleteHandler}>
+              Delete
+            </div>
+</form>  
             
-            <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
-              <Form.Control
-                type="title"
-                placeholder="Enter the title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </Form.Group>
 
-            <Form.Group controlId="content">
-              <Form.Label>Content</Form.Label>
-              <Form.Control
-                as="textarea"
-                placeholder="Enter the content"
-                rows={4}
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
-            </Form.Group>
-            {content && (
-              <Card>
-                <Card.Header>Note Preview</Card.Header>
-                <Card.Body>
-                  <ReactMarkdown>{content}</ReactMarkdown>
-                </Card.Body>
-              </Card>
-            )}
-
-            <Form.Group controlId="content">
-              <Form.Label>Category</Form.Label>
-              <Form.Control
-                type="content"
-                placeholder="Enter the Category"
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="content">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="content"
-                placeholder="Enter the Date"
-                value={date1}
-                onChange={(e) => setDate1(e.target.value)}
-              />
-            </Form.Group>
-            {loading && <Loading size={50} />}
-            <Button variant="primary" type="submit">
-              Update Note
-            </Button>
-            <Button
-              className="mx-2"
-              variant="danger"
-              onClick={() => deleteHandler(match.params.id)}
-            >
-              Delete Note
-            </Button>
-          </Form>
-        </Card.Body>
-
-        <Card.Footer className="text-muted">
-          Updated on - {date.substring(0, 10)}
-        </Card.Footer>
-      </Card>
-    </MainScreen>
+        </div>
+    </div>
+    </body>
   );
 }
 

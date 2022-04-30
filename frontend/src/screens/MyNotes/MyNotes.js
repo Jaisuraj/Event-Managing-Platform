@@ -3,6 +3,7 @@ import { Accordion, Badge, Button, Card } from "react-bootstrap";
 import MainScreen from "../../components/MainScreen";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import "./MyNotes.css"
 
 import { useDispatch, useSelector } from "react-redux";
 import { deleteNoteAction, listNotes } from "../../actions/notesActions";
@@ -44,21 +45,24 @@ export default function MyNotes({ history }) {
 
   return (
     <MainScreen>
+      <div className="bgsq"></div>
+      <div className="bgsq1"></div>
       {console.log(notes)}
       <Link to="/createnote">
         <div className="plan_button">
-
+          Plan Now
         </div>
       </Link>
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 
       {loading && <Loading />}
       {notes?.map((note) => (
-        <Accordion>
-          <Card style={{ margin: 10 }} key={note._id}>
+        <Accordion className="card_box">
+          <Card style={{ margin: 10, innerWidth: 0 }} key={note._id}>
             <Card.Header style={{ display: "flex" }}>
               <span
                 // onClick={() => ModelShow(note)}
+                className="note_single"
                 style={{
                   color: "black",
                   textDecoration: "none",
@@ -68,12 +72,14 @@ export default function MyNotes({ history }) {
                   fontSize: 18,
                 }}
               >
-                {note.title}
+                
               </span>
 
-              <div>
-                <Button href={`/note/${note._id}`}>Edit</Button>
-              </div>
+              <Link to={`/note/${note._id}`}>
+                <div className="edit">
+                  Edit
+                </div>
+              </Link>
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
