@@ -129,26 +129,5 @@ nav a:nth-child(3):hover ~ #indicator {
 
 nav a:nth-child(4):hover ~ #indicator {
     left: 83%;
-    background: linear-gradient(130deg, rgb(38, 95, 17),rgb(0, 72, 255));
+    background: linear-gradient(130deg, rgb(17, 255, 21), rgb(0, 251, 255));
   }
-
-  .logout{
-    position: absolute;
-    left: 90%;
-    top: 2.5%;
-    width: fit-content;
-    height: fit-content;
-    font-size: 1vw;
-    font-weight: 300;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #fff;
-    padding: 0.5% 1%;
-    border-radius: 20px;
-    background: #F67280;
-    transition: 0.3s;
-  }
-
-  .logout:hover{
-    background: #9d454e;
-  }
-  
