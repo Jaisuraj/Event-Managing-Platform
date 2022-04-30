@@ -72,6 +72,7 @@ export function RegisterScreen({ history }) {
   return (
     <div className="sec1">
       <div className="sqr"></div>
+      <div className="bgpink"></div>
       <div className="log_container">
         <div className="err1">
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}

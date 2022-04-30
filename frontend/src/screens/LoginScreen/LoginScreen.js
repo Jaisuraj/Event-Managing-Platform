@@ -32,6 +32,7 @@ export const LoginScreen = ({ history }) => {
   return (
     <div className="sec1">
       <div className="sqr"></div>
+      <div className="bgpink"></div>
       <div className="log_container">
       <img src={log} className="imglog"></img>
       <div className="err">

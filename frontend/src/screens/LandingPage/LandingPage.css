@@ -159,7 +159,7 @@ span a:hover{
   left: 20px;
   border-radius: 20px;
   background: white;
-  box-shadow: 5px 10px 10px #888888;
+  box-shadow: 5px 5px 2px 2px #424141;
 }
 
 
@@ -187,4 +187,16 @@ span a:hover{
   border-radius: 20px;
   right:0px;
   transform: scale(0.75);
+}
+.bgimg{
+  
+  
+}
+
+.animation{
+  position: fixed;
+  left: 70%;
+  top: 60%;
+  transform: scale(2.3);
+  width: 800px;
 }

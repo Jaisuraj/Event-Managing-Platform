@@ -26,7 +26,7 @@ const App = () => (
       <Route path="/" component={LandingPage} exact />
       <Route path="/login" component={LoginScreen} />
       <Route path="/register" component={RegisterScreen} />
-      <Route path="/myevents" component={EventNotes} />
+      <Route path="/myevents" component={MyNotes} />
       <Route path="/profile" component={ProfileScreen} />
       <Route path="/features" component={MapScreen}  />
       <Route path="/deets" component={Home}  />
