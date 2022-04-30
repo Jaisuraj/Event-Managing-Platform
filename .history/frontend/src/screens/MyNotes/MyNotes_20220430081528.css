@@ -1,0 +1,9 @@
+.plan_button{
+    width: 10%;
+    height: 10%;
+    top: 40%;
+    padding: 1%;
+    position: relative;
+    font-size: 1.2vw;
+    background:black;
+}
