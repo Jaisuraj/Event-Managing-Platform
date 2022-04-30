@@ -5,7 +5,7 @@
   left: -5%;
   position: fixed;
   z-index: -1;
-  background-color: #36e3bb;
+  background-color: #B6D0E2;
   }
   .sec1{
     height: 80vh;
@@ -31,14 +31,14 @@
   .title{
     position: relative;
     font-size: 2.3vw;
-    top:10%;
+    top:7%;
     left: 62%;
     font-weight: 50px;
   }
   .frm-reg{
     position: relative;
     left: 53%;
-    top: 10%;
+    top: 7%;
   }
   #fname-reg{
     font-size: 16px;

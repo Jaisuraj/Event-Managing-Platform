@@ -9,6 +9,8 @@ import ReactMarkdown from "react-markdown";
 import emailjs from "emailjs-com"
 import "./CreateNote.css";
 import log from'./login.png';
+import bgimg from'./partybg.jpg';
+
 
 
 function CreateNote({ history }) {
@@ -64,9 +66,12 @@ function CreateNote({ history }) {
   useEffect(() => {}, []);
 
   return (
+    <body className="bgbody">
     <div className="form_container">
+      
       <div className="bgsq"></div>
-      <div className="prsq"></div>
+      <div className="bgsq1"></div>
+      
       <img src={log} className="imgnote"></img>
         <div className="headnote">
           Create a new Note
@@ -78,7 +83,7 @@ function CreateNote({ history }) {
 <h4></h4>
 <input    type="title"
           value={title}
-          placeholder="Enter the title"
+          placeholder=""
           name="title"
           onChange={(e) => setTitle(e.target.value)}
           className="title_blank"
@@ -90,7 +95,7 @@ function CreateNote({ history }) {
 
 <input    as="textarea"
           value={content}
-          placeholder="Enter content"
+          placeholder=""
           rows={4}
           name="content"
           onChange={(e) => setContent(e.target.value)}
@@ -117,7 +122,7 @@ function CreateNote({ history }) {
 <input    type="content"
           value={category}
           name="category"
-          placeholder="Enter the Category"
+          placeholder=""
           onChange={(e) => setCategory(e.target.value)}
           className="category"
           ></input>
@@ -127,7 +132,7 @@ function CreateNote({ history }) {
 <h4></h4>
 <input    type="content"
           value={date}
-          placeholder="Enter the date"
+          placeholder=""
           name="subject"
           onChange={(e) => setDate(e.target.value)}
           className="date"
@@ -144,6 +149,7 @@ function CreateNote({ history }) {
 
         </div>
     </div>
+    </body>
   );
 }
 

@@ -43,19 +43,12 @@ export default function MyNotes({ history }) {
   }, [dispatch, history, userInfo, successCreate, successUpdate]);
 
   return (
-    <MainScreen title={`${userInfo && userInfo.name}'s Events`}>
+    <MainScreen>
       {console.log(notes)}
       <Link to="/createnote">
-        <Button
-          style={{
-            marginLeft: 10,
-            marginBottom: 6,
-            width: "200px",
-            height: "35px",
-          }}
-        >
-          Plan Now
-        </Button>
+        <div className="plan_button">
+
+        </div>
       </Link>
       {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
 
