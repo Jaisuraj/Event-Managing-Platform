@@ -130,7 +130,7 @@ function CreateNote({ history }) {
 
 <label>Date</label>
 <h4></h4>
-<input    type="content"
+<input    type="date"
           value={date}
           placeholder=""
           name="subject"

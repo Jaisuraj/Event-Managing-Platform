@@ -9,6 +9,7 @@ import Loading from "../../components/Loading";
 import ReactMarkdown from "react-markdown";
 import log from'./login.png';
 import emailjs from "emailjs-com"
+import "./SingleNote.css"
 
 function SingleNote({ match, history }) {
   const [title, setTitle] = useState();
@@ -86,7 +87,7 @@ function SingleNote({ match, history }) {
       <div className="bgsq1"></div>
       
       <img src={log} className="imgnote"></img>
-        <div className="headnote">
+        <div className="headnote1">
           Edit The Note
         </div>
         <div className="forms">

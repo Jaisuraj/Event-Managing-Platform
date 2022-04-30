@@ -20,14 +20,21 @@ const logoutHandler = () => {
 
   useEffect(() => {}, [userInfo]);
   return (
-    
+    <div className="main_nav">
     <nav>
   <Link to="/">HOME</Link>
   <Link to="/deets">MAPS</Link>
   <Link to="/createnote">CREATE</Link>
   <Link to="/mynotes">SPACE</Link>
   <div id="indicator"></div>
-</nav>
+  </nav>
+    <Link to="/">
+      <div className="logout" onClick={logoutHandler}>
+        LOGOUT
+      </div>
+      </Link>
+  </div>
+  
     
   );
 };

@@ -134,21 +134,12 @@ nav a:nth-child(4):hover ~ #indicator {
 
   .logout{
     position: absolute;
-    left: 90%;
-    top: 2.5%;
+    left: 20%;
     width: fit-content;
     height: fit-content;
     font-size: 1vw;
     font-weight: 300;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #fff;
-    padding: 0.5% 1%;
-    border-radius: 20px;
-    background: #F67280;
-    transition: 0.3s;
+    background: #89ff00;
   }
-
-  .logout:hover{
-    background: #9d454e;
-  }
-  

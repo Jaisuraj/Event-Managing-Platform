@@ -51,6 +51,7 @@ export const LoginScreen = ({ history }) => {
       <h4 className="reg">New user?<a href="/register">Register Here</a></h4>
       
       <input type="submit" value="Login"></input>
+      
       </form>
       </div>
     </div>
