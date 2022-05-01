@@ -15,6 +15,7 @@
 .plan_button:hover{
     background: #35a98e;
 }
+
 .edit{
     width: fit-content;
     height: fit-content;
@@ -37,19 +38,17 @@
     
     height: fit-content;
     width: 200%;
-    background: black;
-    
     
     margin-top: 20%;
 }
 
 .note_single{
-    background: rgb(0, 0, 0);
+    background: rgb(255, 253, 253);
 }
 
 .card_hdr{
     display: flex;
     height: 6vh;
-    
+    align-content: center;
     width: 10vw;
 }

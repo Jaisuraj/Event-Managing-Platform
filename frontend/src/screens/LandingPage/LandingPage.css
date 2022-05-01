@@ -200,3 +200,17 @@ span a:hover{
   transform: scale(2.3);
   width: 800px;
 }
+
+h2{
+  position: absolute;
+  font-size: 10vw;
+  top:25%;
+  color: white;
+}
+h4{
+  position: absolute;
+  font-size: 2vw;
+  margin-left: 1%;
+  top:50%;
+  color: white;
+}

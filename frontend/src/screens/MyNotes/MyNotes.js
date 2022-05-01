@@ -44,7 +44,7 @@ export default function MyNotes({ history }) {
   }, [dispatch, history, userInfo, successCreate, successUpdate]);
 
   return (
-    <MainScreen>
+    <MainScreen className="head_scrn">
       <div className="bgsq"></div>
       <div className="bgsq1"></div>
       {console.log(notes)}
@@ -59,7 +59,7 @@ export default function MyNotes({ history }) {
       {notes?.map((note) => (
         <Accordion className="card_box">
           <Card style={{ margin: 10, innerWidth: 0 }} key={note._id}>
-            <Card.Header style={{ display: "flex" }}>
+            <Card.Header className="card_hdr">
               <span
                 // onClick={() => ModelShow(note)}
                 className="note_single"
@@ -72,7 +72,7 @@ export default function MyNotes({ history }) {
                   fontSize: 18,
                 }}
               >
-                
+                {note.title}
               </span>
 
               <Link to={`/note/${note._id}`}>
