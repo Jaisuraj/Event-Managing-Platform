@@ -15,6 +15,9 @@
 .plan_button:hover{
     background: #35a98e;
 }
+.head_scrn{
+    margin-top: 5%;
+}
 .edit{
     width: fit-content;
     height: fit-content;

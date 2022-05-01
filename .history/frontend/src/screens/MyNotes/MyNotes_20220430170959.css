@@ -15,11 +15,12 @@
 .plan_button:hover{
     background: #35a98e;
 }
+
 .edit{
     width: fit-content;
     height: fit-content;
-    top: 20%;
-    padding: 2% 10% 2% 10%;
+    top: 40%;
+    padding: 0.5% 1% 0.5% 1%;
     display: flex;
     align-items: center;
     position: absolute;
@@ -38,18 +39,9 @@
     height: fit-content;
     width: 200%;
     background: black;
-    
-    
     margin-top: 20%;
 }
 
-.note_single{
-    background: rgb(0, 0, 0);
-}
-
-.card_hdr{
-    display: flex;
-    height: 6vh;
-    
-    width: 10vw;
+.note_sinngle{
+    background: black;
 }

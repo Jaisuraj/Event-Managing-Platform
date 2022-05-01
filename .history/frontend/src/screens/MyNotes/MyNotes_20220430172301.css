@@ -15,6 +15,7 @@
 .plan_button:hover{
     background: #35a98e;
 }
+
 .edit{
     width: fit-content;
     height: fit-content;
@@ -38,7 +39,6 @@
     height: fit-content;
     width: 200%;
     background: black;
-    
     
     margin-top: 20%;
 }
